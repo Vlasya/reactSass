@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.sass';
+import {Comment} from "./Components/Comment/Comment";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const user={
+        user1:{
+            avatar:logo,
+            name:'Jonh'
+        },
+        user2:{
+            avatar:logo,
+            name:'Anna'
+        },
+        user3:{
+            avatar:logo,
+            name:'Ivan'
+        }
+    }
+    return (
+        <div className="App">
+            <Comment user={user.user1} text='Lorem ipsum dolor sit amet.'/>
+            <Comment user={user.user2} text='Lorem ipsum 5566dolor sit amet.'/>
+            <Comment user={user.user3} text='Lorem ipsum dolor sit amet, consectetur.'/>
+        </div>
+    );
 }
 
 export default App;
