@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,MAAM,EAAE,IAAI;EAEZ,eAAM;IACJ,YAAY,EAAE,GAAG",
+"sources": ["Timer.module.sass"],
+"names": [],
+"file": "Timer.module.css"
+}

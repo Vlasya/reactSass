@@ -1,6 +1,11 @@
 .App {
   display: flex;
-  flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 30px; }
+  .App .timers {
+    display: flex;
+    flex-direction: column; }
+    .App .timers .timer {
+      display: flex; }
 
 /*# sourceMappingURL=App.css.map */

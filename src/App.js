@@ -1,30 +1,103 @@
-import logo from './logo.svg'
+
+import React from 'react'
 import './App.sass';
-import {Comment} from "./Components/Comment/Comment";
+import {Timer} from "./Components/Timer/Timer";
 
-function App() {
-
-    const user={
-        user1:{
-            avatar:logo,
-            name:'Jonh'
-        },
-        user2:{
-            avatar:logo,
-            name:'Anna'
-        },
-        user3:{
-            avatar:logo,
-            name:'Ivan'
-        }
+export class App extends React.Component {
+    state = {
+        timers: []
     }
-    return (
-        <div className="App">
-            <Comment user={user.user1} text='Lorem ipsum dolor sit amet.'/>
-            <Comment user={user.user2} text='Lorem ipsum 5566dolor sit amet.'/>
-            <Comment user={user.user3} text='Lorem ipsum dolor sit amet, consectetur.'/>
-        </div>
-    );
+
+    render() {
+        return (
+            <div className="App">
+                <div>
+                    <button onClick={() => {this.addTimer()}}>Add Timer</button>
+                    <button onClick={()=>{this.removeAll()}}>Remove All</button>
+                    <div className='timers'>
+                        {this.state.timers.map(timer =>
+                            <div className='timer' key={timer}>
+                                <Timer/>
+                                <button onClick={() => {this.delTimer(timer)}}>
+                                    X
+                                </button>
+
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    addTimer() {
+        this.setState({
+            timers: [
+                ...this.state.timers,
+                Math.random()
+            ]
+        })
+    }
+
+    delTimer(delTimer) {
+        let currentTimer = this.state.timers
+            .filter(timer => timer !== delTimer)
+        this.setState({
+            timers: currentTimer
+        })
+    }
+
+    removeAll(){
+        this.setState({
+            timers:[]
+        })
+    }
 }
 
-export default App;
+export class App2 extends React.Component{
+    state={
+
+        name:'',
+        surname:'',
+        phone:''
+    }
+
+    constructor(props) {
+        super(props);
+
+        this.changeInput=this.changeInput.bind(this)
+
+    }
+
+
+    render(){
+        console.log(this.state)
+        return(
+            <div>
+                <input type="text"
+                       value={this.state.name}
+                       onChange={this.changeInput('name')}
+                />
+                <input type="text"
+                       value={this.state.surname}
+                       onChange={this.changeInput('surname')}
+                />
+                <input type="text"
+                       value={this.state.phone}
+                       onChange={this.changeInput('phone')}
+                />
+            </div>
+        )
+    }
+
+    changeInput(name){
+        return event =>{
+            this.setState({
+                [name]: event.target.value
+            })
+        }
+
+    }
+
+}
+

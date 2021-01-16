@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,OAAO;EACL,KAAK,EAAE,KAAK",
+"sources": ["Avatar.module.sass"],
+"names": [],
+"file": "Avatar.module.css"
+}

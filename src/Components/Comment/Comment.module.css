@@ -12,10 +12,5 @@
       flex-direction: column; }
       .wrapper .comment .info .text {
         color: silver; }
-      .wrapper .comment .info .name {
-        margin: 0;
-        padding: 0; }
-    .wrapper .comment .logo {
-      width: 100px; }
 
 /*# sourceMappingURL=Comment.module.css.map */
